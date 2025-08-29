@@ -5,16 +5,16 @@ import os
 import uuid
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'your_secret_key_here')
+app.secret_key = 'exnova_payment_secret_key_2024_secure_random'
 
 # Configurar Mercado Pago
-mp = mercadopago.SDK(os.environ.get('MERCADO_PAGO_ACCESS_TOKEN', 'YOUR_ACCESS_TOKEN'))
+mp = mercadopago.SDK("APP_USR-8419296773492182-072623-ec7505166228860ec8b43957c948e7da-2021591453")
 
 # Configurar PayPal
 paypalrestsdk.configure({
-    "mode": os.environ.get('PAYPAL_MODE', 'sandbox'),  # sandbox or live
-    "client_id": os.environ.get('PAYPAL_CLIENT_ID', 'YOUR_CLIENT_ID'),
-    "client_secret": os.environ.get('PAYPAL_CLIENT_SECRET', 'YOUR_CLIENT_SECRET')
+    "mode": "live",  # Modo producción
+    "client_id": "AUvkvyPYC8hy36fmqCNshTwqzoGDLPC8ZbFau0Zq 4JR7ZHufdexug5EEZqIxHOibYjtRKYykj961fWv9",
+    "client_secret": "EIlc5bLbB_GV5nPnkSGT1dQxYyw5K_B4IrZbQv745Z8c89WYa4KHYQ6Vhy17I76fayRNA297DSRRM1YL"
 })
 
 @app.route('/')
