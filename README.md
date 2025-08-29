@@ -12,15 +12,18 @@ A classe principal para interagir com a API da Exnova é a `Exnova`.
 ---
 
 ## Inicialização
-Para começar, inicialize a classe `Exnova` com seu e-mail e senha:
+Para começar, inicialize a classe `Exnova` com seu e-mail, senha e clave de licencia (requerida):
 
 ```python
-from Exnovaapi.stable_api import Exnova
+from exnovaapi.stable_api import Exnova
 
 email = "seu_email@example.com"
 senha = "sua_senha"
-api = Exnova(email, senha)
+license_key = "tu_clave_de_licencia"  # Obtén una pagando $5
+api = Exnova(email, senha, license_key=license_key)
 ```
+
+**Nota:** Para obtener una clave de licencia, paga $5 en nuestro sitio web de pagos.
 
 ---
 

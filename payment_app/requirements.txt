@@ -1,0 +1,4 @@
+Flask==2.3.3
+mercadopago==2.0.0
+paypalrestsdk==1.13.2
+requests==2.31.0

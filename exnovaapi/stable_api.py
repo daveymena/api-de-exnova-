@@ -26,7 +26,11 @@ def nested_dict(n, type):
 class Exnova:
     __version__ = api_version
 
-    def __init__(self, email, password, active_account_type="PRACTICE", proxies=None):
+    def __init__(self, email, password, active_account_type="PRACTICE", proxies=None, license_key=None):
+        # Validar clave de licencia
+        if not self._validate_license(license_key):
+            raise ValueError("Clave de licencia inválida o requerida. Obtén una clave pagando $5 en nuestro sitio web.")
+
         self.size = [1, 5, 10, 15, 30, 60, 120, 300, 600, 900, 1800,
                      3600, 7200, 14400, 28800, 43200, 86400, 604800, 2592000]
         self.email = email
@@ -48,6 +52,27 @@ class Exnova:
         # --start
         # self.connect()
         # this auto function delay too long
+
+    def _validate_license(self, license_key):
+        """
+        Valida la clave de licencia.
+        En producción, esto debería verificar contra un servidor o base de datos.
+        """
+        if license_key is None:
+            return False
+
+        # Lista de claves válidas (en producción, usar base de datos)
+        valid_keys = [
+            "demo-key-123",  # Clave de demostración
+            # Agregar claves generadas por el sistema de pagos
+        ]
+
+        # Para claves UUID generadas por el sistema de pagos
+        import re
+        if re.match(r'^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$', license_key):
+            return True  # Asumir que UUIDs son válidos
+
+        return license_key in valid_keys
 
     # --------------------------------------------------------------------------
 

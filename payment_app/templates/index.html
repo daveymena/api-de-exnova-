@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso a API Exnova - Pago de $5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: #4CAF50;
+            margin: 20px 0;
+        }
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        .payment-options {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        .payment-option {
+            flex: 1;
+            text-align: center;
+        }
+        .payment-option img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .flash {
+            color: red;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Acceso a API Exnova</h1>
+        <div class="price">$5 USD</div>
+        <div class="description">
+            Obtén acceso completo a la biblioteca Python de la API Exnova para trading automatizado.
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="post" action="/pay">
+            <div class="payment-options">
+                <div class="payment-option">
+                    <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.13/mercadopago/logo__large.png" alt="Mercado Pago">
+                    <button type="submit" name="payment_method" value="mercadopago" class="btn">Pagar con Mercado Pago</button>
+                </div>
+                <div class="payment-option">
+                    <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_150x38.png" alt="PayPal">
+                    <button type="submit" name="payment_method" value="paypal" class="btn">Pagar con PayPal</button>
+                </div>
+            </div>
+        </form>
+
+        <div style="text-align: center; margin-top: 30px; color: #666;">
+            <p>Después del pago, recibirás una clave de licencia para acceder a la API.</p>
+        </div>
+    </div>
+</body>
+</html>

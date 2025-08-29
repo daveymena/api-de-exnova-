@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Exitoso - API Exnova</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .license-key {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 18px;
+            margin: 20px 0;
+            word-break: break-all;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Pago Exitoso!</h1>
+        <p>Gracias por tu compra. Aquí tienes tu clave de licencia:</p>
+        <div class="license-key">{{ license_key }}</div>
+        <p>Guarda esta clave en un lugar seguro. La necesitarás para acceder a la API.</p>
+
+        <a href="https://github.com/daveymena/api-de-exnova-" class="btn" target="_blank">Descargar API</a>
+        <a href="/" class="btn">Volver al Inicio</a>
+
+        <div style="margin-top: 30px; color: #666;">
+            <p>Si tienes alguna pregunta, contacta con el soporte.</p>
+        </div>
+    </div>
+</body>
+</html>
